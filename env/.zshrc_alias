@@ -11,6 +11,9 @@ alias tf='terraform'
 alias t='tmux'
 alias v='nvim'
 
+alias lg='lazygit'
+alias ld='lazydocker'
+
 # Jump to places
 alias p='cd $HOME/personal'
 alias w='cd $HOME/work'
