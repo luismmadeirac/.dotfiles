@@ -1,0 +1,18 @@
+os:
+  editPreset: "nvim"
+  openCommand: "nvim {{filename}}"
+  editCommand: "nvim {{filename}}"
+
+gui:
+  showFileTree: true
+  showIcons: true
+  nerdFontsVersion: "3"
+  theme:
+    selectedLineBgColor:
+      - reverse
+
+customCommands:
+  - key: "P"
+    context: "global"
+    command: "gh pr view --web"
+    description: "Open PR in browser"
