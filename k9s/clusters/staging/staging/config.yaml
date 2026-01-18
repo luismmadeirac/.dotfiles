@@ -1,0 +1,17 @@
+# Development cluster config
+# Full access, fast refresh, debug-friendly
+k9s:
+  readOnly: false
+  refreshRate: 2
+  ui:
+    skin: dracula
+  shellPod:
+    image: nicolaka/netshoot:latest
+    namespace: default
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  logger:
+    tail: 500
+    buffer: 5000
+    sinceSeconds: 300

@@ -1,0 +1,52 @@
+aliases:
+  # Workloads
+  dp: deployments
+  ds: daemonsets
+  sts: statefulsets
+  rs: replicasets
+  jo: jobs
+  cj: cronjobs
+
+  # Networking
+  svc: services
+  ep: endpoints
+  ing: ingresses
+  np: networkpolicies
+
+  # Config & Storage
+  cm: configmaps
+  sec: v1/secrets
+  pvc: persistentvolumeclaims
+  pv: persistentvolumes
+  sc: storageclasses
+
+  # RBAC
+  sa: serviceaccounts
+  cr: clusterroles
+  crb: clusterrolebindings
+  ro: roles
+  rb: rolebindings
+
+  # Cluster
+  no: nodes
+  ns: namespaces
+  ev: events
+
+  # Scaling
+  hpa: horizontalpodautoscalers
+  vpa: verticalpodautoscalers
+
+  # Flux CD (if used)
+  ks: kustomizations.kustomize.toolkit.fluxcd.io
+  hr: helmreleases.helm.toolkit.fluxcd.io
+  git: gitrepositories.source.toolkit.fluxcd.io
+  src: sources
+
+  # ArgoCD (if used)
+  app: applications.argoproj.io
+  proj: appprojects.argoproj.io
+
+  # Cert-manager (if used)
+  cert: certificates.cert-manager.io
+  iss: issuers.cert-manager.io
+  ciss: clusterissuers.cert-manager.io

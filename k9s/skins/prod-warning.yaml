@@ -1,0 +1,83 @@
+# Production Warning theme for k9s
+# Red-tinted as constant visual reminder you're in prod
+k9s:
+  body:
+    fgColor: "#f8f8f2"
+    bgColor: default
+    logoColor: "#ff5555"
+  prompt:
+    fgColor: "#f8f8f2"
+    bgColor: default
+    suggestColor: "#ff5555"
+  info:
+    fgColor: "#ff5555"
+    sectionColor: "#f8f8f2"
+  dialog:
+    fgColor: "#f8f8f2"
+    bgColor: default
+    buttonFgColor: "#1a1a1a"
+    buttonBgColor: "#ff5555"
+    buttonFocusFgColor: "#1a1a1a"
+    buttonFocusBgColor: "#ff7979"
+    labelFgColor: "#ff5555"
+    fieldFgColor: "#f8f8f2"
+  frame:
+    border:
+      fgColor: "#ff5555"
+      focusColor: "#ff7979"
+    menu:
+      fgColor: "#f8f8f2"
+      keyColor: "#ff5555"
+      numKeyColor: "#ff7979"
+    crumbs:
+      fgColor: "#1a1a1a"
+      bgColor: "#ff5555"
+      activeColor: "#ff7979"
+    status:
+      newColor: "#8be9fd"
+      modifyColor: "#ffb86c"
+      addColor: "#50fa7b"
+      errorColor: "#ff5555"
+      highlightColor: "#f1fa8c"
+      killColor: "#6272a4"
+      completedColor: "#6272a4"
+    title:
+      fgColor: "#ff5555"
+      bgColor: default
+      highlightColor: "#ff7979"
+      counterColor: "#ff5555"
+      filterColor: "#ff7979"
+  views:
+    charts:
+      bgColor: default
+      defaultDialColors:
+        - "#ff5555"
+        - "#ff7979"
+      defaultChartColors:
+        - "#ff5555"
+        - "#ff7979"
+    table:
+      fgColor: "#f8f8f2"
+      bgColor: default
+      cursorFgColor: "#1a1a1a"
+      cursorBgColor: "#ff5555"
+      header:
+        fgColor: "#ff5555"
+        bgColor: default
+        sorterColor: "#ff7979"
+    xray:
+      fgColor: "#f8f8f2"
+      bgColor: default
+      cursorColor: "#44475a"
+      graphicColor: "#ff5555"
+      showIcons: false
+    yaml:
+      keyColor: "#ff5555"
+      colonColor: "#6272a4"
+      valueColor: "#f8f8f2"
+    logs:
+      fgColor: "#f8f8f2"
+      bgColor: default
+      indicator:
+        fgColor: "#1a1a1a"
+        bgColor: "#ff5555"
