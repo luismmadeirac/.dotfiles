@@ -1,15 +1,48 @@
+# Window settings
 title=" "
 macos-titlebar-style = hidden
-
-theme = Catppuccin Frappe
-
-cursor-text=#FFF
-confirm-close-surface=false
-
-#background-blur=true
-background=000
-#background-opacity=0.85
-
 gtk-titlebar=false
-
 confirm-close-surface=false
+
+# Font Configuration
+font-family = "JetBrainsMono Nerd Font Mono"
+font-size = 13
+
+
+background = #0e0c0a
+foreground = #f7f7f7
+selection-foreground = #191613
+selection-background = #f7f7f7
+cursor-color = #fdffd1
+
+palette = 0=#0e0c0a
+palette = 1=#ff909d
+palette = 2=#d3ffdb
+palette = 3=#fdffd1
+palette = 4=#aec1ff
+palette = 5=#ddb6ff
+palette = 6=#c9fafa
+palette = 7=#f7f7f7
+palette = 8=#000000
+palette = 9=#ff6571
+palette = 10=#89ffcb
+palette = 11=#ffff99
+palette = 12=#7d9eff
+palette = 13=#aa93ff
+palette = 14=#95fbfb
+palette = 15=#ffffff
+
+# Background opacity (uncomment if you want transparency)
+# background-opacity=0.95
+# background-blur=true
+
+# Window padding
+window-padding-x = 4
+window-padding-y = 4
+
+# Performance
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# Copy/Paste
+copy-on-select = false

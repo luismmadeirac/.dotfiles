@@ -39,6 +39,7 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # define workspaces
 alt-b = 'workspace B' # browser workspace
+alt-c = 'workspace C' # browser workspace
 alt-s = 'workspace S' # slack workspace
 alt-t = 'workspace T' # terminal / editor (nvim) workspace
 alt-i = 'workspace I' # InteliJ (editor)
@@ -51,6 +52,7 @@ alt-p = 'workspace P' # Postman (migtht conflict with macos print shortcut)
 
 # Moves the node (window) into a workspace
 alt-shift-b = 'move-node-to-workspace B'
+alt-shift-c = 'move-node-to-workspace C'
 alt-shift-s = 'move-node-to-workspace S'
 alt-shift-t = 'move-node-to-workspace T'
 alt-shift-i = 'move-node-to-workspace I'
@@ -114,7 +116,7 @@ alt-shift-l = ['join-with right', 'mode main']
 # Auto Move Apps to Workspaces
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
-run = "move-node-to-workspace B"
+run = ['move-node-to-workspace B']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'
@@ -134,8 +136,11 @@ run = ['move-node-to-workspace O']
 
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = "move-node-to-workspace T"
+run = ['move-node-to-workspace T']
 
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = ['layout floating']
 
 [workspace-to-monitor-force-assignment]
     B = ['main', 'secondary']
