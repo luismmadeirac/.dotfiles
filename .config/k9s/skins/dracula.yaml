@@ -1,0 +1,83 @@
+# Dracula theme for k9s
+# For dev/staging environments
+k9s:
+  body:
+    fgColor: "#f8f8f2"
+    bgColor: default
+    logoColor: "#bd93f9"
+  prompt:
+    fgColor: "#f8f8f2"
+    bgColor: default
+    suggestColor: "#bd93f9"
+  info:
+    fgColor: "#ff79c6"
+    sectionColor: "#f8f8f2"
+  dialog:
+    fgColor: "#f8f8f2"
+    bgColor: default
+    buttonFgColor: "#f8f8f2"
+    buttonBgColor: "#bd93f9"
+    buttonFocusFgColor: "#f8f8f2"
+    buttonFocusBgColor: "#ff79c6"
+    labelFgColor: "#ffb86c"
+    fieldFgColor: "#f8f8f2"
+  frame:
+    border:
+      fgColor: "#6272a4"
+      focusColor: "#bd93f9"
+    menu:
+      fgColor: "#f8f8f2"
+      keyColor: "#ff79c6"
+      numKeyColor: "#ffb86c"
+    crumbs:
+      fgColor: "#f8f8f2"
+      bgColor: "#44475a"
+      activeColor: "#bd93f9"
+    status:
+      newColor: "#8be9fd"
+      modifyColor: "#ffb86c"
+      addColor: "#50fa7b"
+      errorColor: "#ff5555"
+      highlightColor: "#f1fa8c"
+      killColor: "#6272a4"
+      completedColor: "#6272a4"
+    title:
+      fgColor: "#bd93f9"
+      bgColor: default
+      highlightColor: "#f1fa8c"
+      counterColor: "#ff79c6"
+      filterColor: "#50fa7b"
+  views:
+    charts:
+      bgColor: default
+      defaultDialColors:
+        - "#bd93f9"
+        - "#ff5555"
+      defaultChartColors:
+        - "#bd93f9"
+        - "#ff5555"
+    table:
+      fgColor: "#f8f8f2"
+      bgColor: default
+      cursorFgColor: "#282a36"
+      cursorBgColor: "#bd93f9"
+      header:
+        fgColor: "#f8f8f2"
+        bgColor: default
+        sorterColor: "#8be9fd"
+    xray:
+      fgColor: "#f8f8f2"
+      bgColor: default
+      cursorColor: "#44475a"
+      graphicColor: "#bd93f9"
+      showIcons: false
+    yaml:
+      keyColor: "#ff79c6"
+      colonColor: "#6272a4"
+      valueColor: "#f8f8f2"
+    logs:
+      fgColor: "#f8f8f2"
+      bgColor: default
+      indicator:
+        fgColor: "#f8f8f2"
+        bgColor: "#bd93f9"

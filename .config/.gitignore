@@ -1,0 +1,24 @@
+tt.*
+.tests
+doc/tags
+debug
+.repro
+foo.*
+*.log
+data
+
+// ---------
+
+opencode/
+nvim/
+configstore/
+nvm/
+npm/
+pnpm/
+yarn/
+raycast/
+oh-my-zsh/
+rustup/
+npm/
+tmux/plugins/
+

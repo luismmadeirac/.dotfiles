@@ -1,0 +1,29 @@
+alias sz='source ~/.zshrc'
+
+alias c='clear'
+
+# Services
+alias d='docker'
+alias k='kubectl'
+alias h='helm'
+alias tf='terraform'
+alias ld='lazydocker'
+alias lg='lazygit'
+
+alias t='tmux'
+alias v='nvim'
+
+# Jump
+alias p='cd $HOME/personal'
+alias w='cd $HOME/work'
+alias s='cd $HOME/work/s'
+alias bb='cd $HOME/work/bb'
+alias vaults='cd $HOME/vaults'
+
+# reload
+alias devrs='$HOME/.local/scripts/dev-env.sh --auto-approve && source ~/.zshrc'
+
+alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+
+alias ocs="opencode --port 4096"
+alias oc="opencode"

@@ -1,0 +1,26 @@
+# Gitleaks configuration for dotfiles
+title = "dotfiles gitleaks config"
+
+[allowlist]
+description = "Global allowlist"
+paths = [
+  '''\.example$''',
+  '''\.sample$''',
+  '''\.template$''',
+  '''README\.md$'''
+]
+regexes = [
+  '''(?i)(xxx|your[-_]?(api[-_]?key|token|secret)|CHANGEME|PLACEHOLDER)'''
+]
+
+[[rules]]
+id = "dotfile-api-key"
+description = "Potential API key in config"
+regex = '''(?i)(api[_-]?key|apikey)\s*[=:]\s*['"]?([a-zA-Z0-9_-]{20,})['"]?'''
+keywords = ["api_key", "apikey", "api-key"]
+
+[[rules]]
+id = "dotfile-token"
+description = "Potential token in config"
+regex = '''(?i)(token|auth[_-]?token)\s*[=:]\s*['"]?([a-zA-Z0-9_-]{20,})['"]?'''
+keywords = ["token", "auth_token", "auth-token"]

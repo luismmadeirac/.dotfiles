@@ -1,0 +1,80 @@
+# Ghostty Configuration
+# Optimized for Neovim with Nightingale theme
+
+# Window settings
+title=" "
+macos-titlebar-style = hidden
+gtk-titlebar=false
+confirm-close-surface=false
+
+# Font Configuration
+font-family = "JetBrainsMono Nerd Font Mono"
+font-size = 13
+
+# Optional: Enable font features (ligatures, etc.)
+# font-feature = -calt
+# font-feature = -liga
+
+# Theme - Using dark background to match Nightingale
+# theme = Catppuccin Frappe
+# Commented out to use custom colors below
+
+# Custom colors to better match Nightingale colorscheme
+# Using much darker background (near-black like the screenshot)
+background = #0a0a0a
+foreground = #c0caf5
+
+# Cursor
+cursor-color = #7aa2f7
+cursor-text = #1c1c1c
+
+# Selection
+selection-background = #3d59a1
+selection-foreground = #c0caf5
+
+# Black
+palette = 0=#15161e
+palette = 8=#414868
+
+# Red
+palette = 1=#f7768e
+palette = 9=#f7768e
+
+# Green
+palette = 2=#9ece6a
+palette = 10=#9ece6a
+
+# Yellow
+palette = 3=#e0af68
+palette = 11=#e0af68
+
+# Blue
+palette = 4=#7aa2f7
+palette = 12=#7aa2f7
+
+# Magenta
+palette = 5=#bb9af7
+palette = 13=#bb9af7
+
+# Cyan
+palette = 6=#7dcfff
+palette = 14=#7dcfff
+
+# White
+palette = 7=#a9b1d6
+palette = 15=#c0caf5
+
+# Background opacity (uncomment if you want transparency)
+# background-opacity=0.95
+# background-blur=true
+
+# Window padding
+window-padding-x = 4
+window-padding-y = 4
+
+# Performance
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# Copy/Paste
+copy-on-select = false

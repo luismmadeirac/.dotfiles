@@ -1,0 +1,17 @@
+# Production cluster config
+# READ-ONLY by default, slower refresh, visual warning
+k9s:
+  readOnly: true
+  refreshRate: 5
+  ui:
+    skin: prod-warning
+  shellPod:
+    image: busybox:1.35.0
+    namespace: default
+    limits:
+      cpu: 100m
+      memory: 100Mi
+  logger:
+    tail: 1000
+    buffer: 10000
+    sinceSeconds: 600

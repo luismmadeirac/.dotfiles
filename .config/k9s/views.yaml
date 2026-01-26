@@ -1,0 +1,76 @@
+views:
+  v1/pods:
+    columns:
+      - NAME
+      - PF
+      - READY
+      - STATUS
+      - RESTARTS
+      - CPU
+      - MEM
+      - IP
+      - NODE
+      - AGE
+
+  apps/v1/deployments:
+    columns:
+      - NAME
+      - READY
+      - UP-TO-DATE
+      - AVAILABLE
+      - CPU
+      - MEM
+      - AGE
+
+  v1/services:
+    columns:
+      - NAME
+      - TYPE
+      - CLUSTER-IP
+      - EXTERNAL-IP
+      - PORTS
+      - AGE
+
+  v1/nodes:
+    columns:
+      - NAME
+      - STATUS
+      - ROLE
+      - VERSION
+      - CPU
+      - MEM
+      - %CPU
+      - %MEM
+      - AGE
+
+  v1/persistentvolumeclaims:
+    columns:
+      - NAME
+      - STATUS
+      - VOLUME
+      - CAPACITY
+      - ACCESS-MODES
+      - STORAGECLASS
+      - AGE
+
+  networking.k8s.io/v1/ingresses:
+    columns:
+      - NAME
+      - CLASS
+      - HOSTS
+      - ADDRESS
+      - PORTS
+      - AGE
+
+  v1/configmaps:
+    columns:
+      - NAME
+      - DATA
+      - AGE
+
+  v1/secrets:
+    columns:
+      - NAME
+      - TYPE
+      - DATA
+      - AGE
