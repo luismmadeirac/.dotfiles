@@ -17,12 +17,12 @@ mkdir -p "$ZSH_STATE_DIR"
 
 VIM="nvim"
 
-PERSONAL=$CONFIG_HOME/personal
+PERSONAL=$CONFIG_HOME/Personal
 
 export GOPATH=$HOME/.local/go
 export PATH="/opt/homebrew/bin:$PATH"
 export GIT_EDITOR=$VIM
-export DEV_ENV_HOME="$HOME/Personal/dev-env"
+export DEV_ENV_HOME="$PERSONAL/dev-env"
 
 export AWS_CONFIG_FILE="$CONFIG_HOME/aws/config"
 export AWS_SHARED_CREDENTIALS_FILE="$CONFIG_HOME/aws/credentials"
