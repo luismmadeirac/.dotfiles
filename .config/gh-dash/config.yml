@@ -1,0 +1,41 @@
+prSections:
+  - title: All Open PRs
+    filters: is:open
+  - title: My PRs
+    filters: is:open author:@me
+  - title: Needs My Review
+    filters: is:open review-requested:@me
+
+issueSections:
+  - title: My Issues
+    filters: is:open author:@me
+
+defaults:
+  prsLimit: 20
+  issuesLimit: 20
+  refetchIntervalMinutes: 30
+  preview:
+    open: true
+    width: 0.45
+  view: prs
+  dateFormat: relative
+
+confirmQuit: false
+includeReadNotifications: false
+
+repoPaths:
+  ":owner/:repo": ~/Developer/:repo
+
+keybindings:
+  prs:
+    - key: D
+      name: diffview
+      command: >
+        tmux new-window -c {{.RepoPath}} '
+          gh pr checkout {{.PrNumber}} &&
+          nvim -c ":DiffviewOpen origin/{{.BaseRefName}}...HEAD"
+        '
+    - key: N
+      name: nvim
+      command: >
+        tmux new-window -c {{.RepoPath}} 'nvim .'
