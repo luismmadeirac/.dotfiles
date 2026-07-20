@@ -11,6 +11,11 @@ gui:
     selectedLineBgColor:
       - reverse
 
+keybinding:
+  universal:
+    pushFiles: "<c-p>"
+    createPullRequest: "O"
+
 customCommands:
   - key: "P"
     context: "global"

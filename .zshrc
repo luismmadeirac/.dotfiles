@@ -30,4 +30,14 @@ export PATH="/opt/homebrew/bin:$PATH"
 
 
 # Neovim configurations
+export EDITOR=nvim
 alias nvim-mine='nvim'
+export KUBECONFIG=/Users/luismadeira/.kube/staging-config
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/luismadeira/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+export KUBECONFIG=~/.kube/syott-staging
