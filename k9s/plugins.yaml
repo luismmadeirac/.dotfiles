@@ -1,0 +1,114 @@
+plugins:
+  # Tail logs with stern (install: brew install stern)
+  stern:
+    shortCut: Shift-L
+    description: Tail logs with stern
+    scopes:
+      - pods
+    command: stern
+    background: false
+    args:
+      - --context
+      - $CONTEXT
+      - --namespace
+      - $NAMESPACE
+      - $POD
+      - --container
+      - $NAME
+
+  # Debug container with netshoot
+  debug-netshoot:
+    shortCut: Shift-D
+    description: Debug with netshoot
+    scopes:
+      - pods
+    command: kubectl
+    background: false
+    args:
+      - debug
+      - -it
+      - --context
+      - $CONTEXT
+      - -n
+      - $NAMESPACE
+      - $NAME
+      - --image=nicolaka/netshoot
+      - --target=$NAME
+
+  # Get YAML and open in editor
+  edit-yaml:
+    shortCut: Shift-E
+    description: Edit in $EDITOR
+    scopes:
+      - all
+    command: bash
+    background: false
+    args:
+      - -c
+      - kubectl --context $CONTEXT -n $NAMESPACE get $RESOURCE_NAME $NAME -o yaml | $EDITOR -
+
+  # Copy pod name to clipboard (macOS)
+  copy-name:
+    shortCut: Ctrl-C
+    description: Copy name to clipboard
+    scopes:
+      - all
+    command: bash
+    background: true
+    args:
+      - -c
+      - echo -n $NAME | pbcopy
+
+  # Port forward and open in browser
+  pf-browser:
+    shortCut: Shift-O
+    description: Port-forward & open browser
+    scopes:
+      - services
+    command: bash
+    background: true
+    args:
+      - -c
+      - |
+        port=$(kubectl --context $CONTEXT -n $NAMESPACE get svc $NAME -o jsonpath='{.spec.ports[0].port}')
+        kubectl --context $CONTEXT -n $NAMESPACE port-forward svc/$NAME 8080:$port &
+        sleep 2 && open http://localhost:8080
+
+  # Show resource usage (requires metrics-server)
+  resource-usage:
+    shortCut: Shift-M
+    description: Show resource usage
+    scopes:
+      - pods
+    command: kubectl
+    background: false
+    args:
+      - --context
+      - $CONTEXT
+      - -n
+      - $NAMESPACE
+      - top
+      - pod
+      - $NAME
+      - --containers
+
+  # Restart deployment
+  restart:
+    shortCut: Shift-R
+    description: Rollout restart
+    scopes:
+      - deployments
+      - statefulsets
+      - daemonsets
+    command: kubectl
+    background: false
+    confirm: true
+    args:
+      - --context
+      - $CONTEXT
+      - -n
+      - $NAMESPACE
+      - rollout
+      - restart
+      - $RESOURCE_NAME
+      - $NAME

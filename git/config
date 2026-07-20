@@ -1,0 +1,21 @@
+[user]
+	name = Luis Madeira
+	email = luismmadeirac@proton.me
+    username = luismmadeirac
+[core]
+    editor = nvim
+[column]
+    ui = auto
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	renames = true
+	tool = nvimdiff
+[web]
+	browser = google-chrome
+[color "branch"]
+	current = yellow bold
+	local = green bold
+	remote = cyan bold
+[pull]
+    rebase = true

@@ -1,0 +1,58 @@
+confirmOnQuit: false
+editor: nvim
+shell: zsh
+
+gui:
+  language: 'en'
+  refreshInterval: 3
+  mouseEvents: false
+
+logs:
+  wrap: true
+  timestamps: true
+  since: 1h
+
+dockerCompose:
+  command: docker compose
+  autoLoad: true
+
+customCommands:
+  containers:
+    - name: Exec Bash (fallback to sh)
+      attach: true
+      command: docker exec -it {{ .Container.ID }} bash || docker exec -it {{ .Container.ID }} sh
+
+    - name: Follow logs (tail 200)
+      attach: true
+      command: docker logs -f --tail=200 {{ .Container.ID }}
+
+    - name: Inspect (jq)
+      command: docker inspect {{ .Container.ID }} | jq
+
+    - name: Print env
+      command: docker exec {{ .Container.ID }} env | sort
+
+    - name: Force remove container
+      command: docker rm -f {{ .Container.ID }}
+
+  services:
+    - name: Restart service
+      command: docker compose restart {{ .Service.Name }}
+
+    - name: Rebuild & up
+      attach: true
+      command: docker compose up --build
+
+    - name: View merged compose config
+      command: docker compose config | less
+
+  global:
+    - name: System prune (DANGEROUS)
+      command: docker system prune -af
+
+    - name: Prune volumes
+      command: docker volume prune -f
+
+remoteDocker:
+  enabled: true
+

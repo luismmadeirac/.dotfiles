@@ -1,0 +1,42 @@
+k9s:
+  liveViewAutoRefresh: true
+  screenDumpDir: ~/.local/state/k9s/screen-dumps
+  refreshRate: 2
+  apiServerTimeout: 2m0s
+  maxConnRetry: 5
+  readOnly: false
+  noExitOnCtrlC: false
+  portForwardAddress: localhost
+  ui:
+    enableMouse: false
+    headless: false
+    logoless: false
+    crumbsless: false
+    splashless: false
+    reactive: true
+    noIcons: false
+    defaultsToFullScreen: false
+    skin: dracula
+  skipLatestRevCheck: true
+  disablePodCounting: false
+  shellPod:
+    image: nicolaka/netshoot:latest
+    namespace: default
+    limits:
+      cpu: 200m
+      memory: 256Mi
+  logger:
+    tail: 500
+    buffer: 5000
+    sinceSeconds: 300
+    textWrap: true
+    disableAutoscroll: false
+    showTime: true
+  thresholds:
+    cpu:
+      critical: 90
+      warn: 70
+    memory:
+      critical: 90
+      warn: 70
+  defaultView: pods
