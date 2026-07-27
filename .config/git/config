@@ -1,9 +1,11 @@
 [user]
-	name = Luis Madeira
-	email = luismmadeirac@proton.me
-    username = luismmadeirac
+	name = syott-root
+	email = sys@syott.co
+	username = syott-root
+	signingkey = 424CA127A92CB146
 [core]
     editor = nvim
+	sshCommand = ssh -i ~/.ssh/syott_root_ed25519 -o IdentitiesOnly=yes
 [column]
     ui = auto
 [diff]
@@ -19,3 +21,11 @@
 	remote = cyan bold
 [pull]
     rebase = true
+[commit]
+	gpgsign = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
