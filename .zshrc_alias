@@ -12,18 +12,60 @@ alias lg='lazygit'
 
 alias t='tmux'
 alias v='nvim'
+alias vo='NVIM_APPNAME=nvim.bak nvim'
 
 # Jump
 alias p='cd $HOME/personal'
 alias w='cd $HOME/work'
-alias s='cd $HOME/work/s'
+alias s='cd $HOME/work/new'
 alias bb='cd $HOME/work/bb'
 alias vaults='cd $HOME/vaults'
 
 # reload
 alias devrs='$HOME/.local/scripts/dev-env.sh --auto-approve && source ~/.zshrc'
+alias devtl='$HOME/.local/scripts/dev-tooling.sh'
 
 alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias private-local='git --git-dir=$HOME/.private-local --work-tree=$HOME/.local'
+
+# Capacitor — Flux dashboard for both EKS clusters
+capacitor-up() {
+  local port="${1:-3333}"
+
+  echo "Authenticating AWS SSO profiles..."
+  aws sso login --profile eu-internal && \
+  aws sso login --profile eu-staging  || { echo "SSO login failed"; return 1; }
+
+  echo "Updating kubeconfig for both clusters..."
+  aws eks update-kubeconfig --region eu-west-1 --name syott-internal-eks --profile eu-internal && \
+  aws eks update-kubeconfig --region eu-west-1 --name syott-staging-eks  --profile eu-staging  || { echo "kubeconfig update failed"; return 1; }
+
+  echo "Starting Capacitor on http://localhost:$port"
+  capacitor --port "$port"
+}
 
 alias ocs="opencode --port 4096"
 alias oc="opencode"
+
+# Git account switching
+# Usage: git-me  → personal commits as luismmadeirac (luis@syott.co)
+#        git-bot → claude/automated commits as syott-root (sys@syott.co)
+git-me() {
+  git config --global user.name "Luis Madeira"
+  git config --global user.email "luis@syott.co"
+  git config --global user.username "luismmadeirac"
+  git config --global user.signingkey "271D72CD960BD7CD"
+  git config --global core.sshCommand "ssh -i ~/.ssh/id_ed25519 -o IdentitiesOnly=yes"
+  echo "git identity → luismmadeirac (luis@syott.co)"
+}
+
+git-bot() {
+  git config --global user.name "syott-root"
+  git config --global user.email "sys@syott.co"
+  git config --global user.username "syott-root"
+  git config --global user.signingkey "424CA127A92CB146"
+  git config --global core.sshCommand "ssh -i ~/.ssh/syott_root_ed25519 -o IdentitiesOnly=yes"
+  echo "git identity → syott-root (sys@syott.co)"
+}
+
+
