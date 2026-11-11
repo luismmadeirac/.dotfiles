@@ -1,58 +1,74 @@
+# lazydocker config
+# Loaded from $XDG_CONFIG_HOME/lazydocker/config.yml (~/.config/lazydocker/config.yml).
+# All options: https://github.com/jesseduffield/lazydocker/blob/master/docs/Config.md
+# Open with: tmux prefix + D, or Space D in Neovim. Press x for the keys menu.
+
 confirmOnQuit: false
-editor: nvim
-shell: zsh
 
 gui:
-  language: 'en'
-  refreshInterval: 3
-  mouseEvents: false
+  language: en
+  border: single              # same borders as Neovim / tmux
+  sidePanelWidth: 0.3
+  expandFocusedSidePanel: true
+  containerStatusHealthStyle: short
+  theme:
+    activeBorderColor: [green, bold]
+    selectedLineBgColor: [reverse]
 
 logs:
-  wrap: true
   timestamps: true
   since: 1h
+  tail: "500"
 
-dockerCompose:
-  command: docker compose
-  autoLoad: true
+oS:
+  openCommand: open {{filename}}
+  openLinkCommand: open {{link}}
 
+# Custom commands: select an item, press c, pick one.
+# Commands with pipes or || need `shell: true`.
+# `attach: true` runs it full-screen in your terminal; press Enter/q to come back.
 customCommands:
   containers:
-    - name: Exec Bash (fallback to sh)
+    - name: Shell (bash, falls back to sh)
       attach: true
-      command: docker exec -it {{ .Container.ID }} bash || docker exec -it {{ .Container.ID }} sh
-
-    - name: Follow logs (tail 200)
+      command: docker exec -it {{ .Container.ID }} sh -c 'command -v bash >/dev/null && exec bash || exec sh'
+    - name: Follow logs (last 200 lines)
       attach: true
       command: docker logs -f --tail=200 {{ .Container.ID }}
-
-    - name: Inspect (jq)
-      command: docker inspect {{ .Container.ID }} | jq
-
-    - name: Print env
-      command: docker exec {{ .Container.ID }} env | sort
-
-    - name: Force remove container
+    - name: Inspect (jq + less)
+      attach: true
+      shell: true
+      command: docker inspect {{ .Container.ID }} | jq -C . | less -R
+    - name: Environment variables
+      attach: true
+      shell: true
+      command: docker exec {{ .Container.ID }} env | sort | less
+    - name: Copy container ID
+      shell: true
+      command: printf %s {{ .Container.ID }} | pbcopy
+    - name: Force remove
       command: docker rm -f {{ .Container.ID }}
 
   services:
-    - name: Restart service
-      command: docker compose restart {{ .Service.Name }}
-
-    - name: Rebuild & up
+    - name: Merged compose config
       attach: true
-      command: docker compose up --build
+      shell: true
+      command: '{{ .DockerCompose }} config | less'
+    - name: Follow logs (last 200 lines)
+      attach: true
+      command: '{{ .DockerCompose }} logs -f --tail=200 {{ .Service.Name }}'
 
-    - name: View merged compose config
-      command: docker compose config | less
+  images:
+    - name: Layer history
+      attach: true
+      shell: true
+      command: docker history {{ .Image.ID }} | less
+    - name: Run a throwaway shell in this image
+      attach: true
+      command: docker run --rm -it --entrypoint sh {{ .Image.ID }}
 
-  global:
-    - name: System prune (DANGEROUS)
-      command: docker system prune -af
-
-    - name: Prune volumes
-      command: docker volume prune -f
-
-remoteDocker:
-  enabled: true
-
+  volumes:
+    - name: Inspect (jq + less)
+      attach: true
+      shell: true
+      command: docker volume inspect {{ .Volume.Name }} | jq -C . | less -R

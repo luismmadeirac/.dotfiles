@@ -40,11 +40,12 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 # define workspaces
 alt-b = 'workspace B' # browser workspace
 alt-c = 'workspace C' # browser workspace
-alt-s = 'workspace S' # slack workspace
+alt-s = 'workspace S' # slack / Syott workspace
 alt-t = 'workspace T' # terminal / editor (nvim) workspace
 alt-i = 'workspace I' # InteliJ (editor)
 alt-f = 'workspace F' #
 alt-g = 'workspace G' # Gather
+alt-q = 'workspace Q' # Linear
 alt-m = 'workspace M' # Music
 alt-d = 'workspace D' # design workspace (figma)
 alt-o = 'workspace O' # obsidian (note pad) workspace
@@ -59,6 +60,7 @@ alt-shift-i = 'move-node-to-workspace I'
 alt-shift-d = 'move-node-to-workspace D'
 alt-shift-f = 'move-node-to-workspace F'
 alt-shift-m = 'move-node-to-workspace M'
+alt-shift-q = 'move-node-to-workspace Q'
 alt-shift-g = 'move-node-to-workspace G'
 alt-shift-o = 'move-node-to-workspace O'
 alt-shift-p = 'move-node-to-workspace P'
@@ -72,6 +74,7 @@ alt-comma = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
+alt-r = 'mode resize' # then h/j/k/l, -/=, b to balance; Enter/Esc to leave
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 alt-h = 'focus left'
@@ -133,6 +136,10 @@ run = ['move-node-to-workspace D']
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
 run = ['move-node-to-workspace O']
+
+[[on-window-detected]]
+if.app-id = 'com.linear'
+run = ['move-node-to-workspace Q']
 
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'

@@ -46,3 +46,7 @@ shell-integration-features = cursor,sudo,title
 
 # Copy/Paste
 copy-on-select = false
+
+# Keyboard: left Option acts as Alt/Meta for Neovim/tmux shortcuts.
+# Use the RIGHT Option key to type Option symbols ([ ] { } @ ...).
+macos-option-as-alt = left
