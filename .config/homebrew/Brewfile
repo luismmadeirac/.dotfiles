@@ -1,0 +1,183 @@
+tap "anomalyco/tap"
+tap "bufbuild/buf"
+tap "coder/coder"
+tap "derailed/k9s"
+tap "fluxcd/tap"
+tap "gimlet-io/capacitor"
+tap "hashicorp/tap"
+tap "modem-dev/tap"
+tap "nikitabobko/tap"
+tap "steipete/tap"
+tap "stripe/stripe-cli"
+tap "terraform-linters/tap"
+tap "vitobotta/tap"
+tap "withgraphite/tap"
+# Static checker for GitHub Actions workflow files
+brew "actionlint"
+# Simple, modern, secure file encryption
+brew "age"
+# GNU internationalization (i18n) and localization (l10n) library
+brew "gettext"
+# Cloudflare Tunnel client (formerly Argo Tunnel)
+brew "cloudflared"
+# Cross-platform make
+brew "cmake"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Interact with Google Gemini AI models from the command-line
+brew "gemini-cli"
+# GitHub command-line tool
+brew "gh"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
+# Audit git repos for secrets
+brew "gitleaks"
+# Open-source GitLab command-line tool
+brew "glab"
+# GNU Privacy Guard (OpenPGP)
+brew "gnupg"
+# CLI to streamline Go project setup with standardized structure
+brew "go-blueprint"
+# Task is a task runner/build tool that aims to be simpler and easier to use
+brew "go-task"
+# Fast linters runner for Go
+brew "golangci-lint"
+# Like cURL, but for gRPC
+brew "grpcurl"
+# Kubernetes package manager
+brew "helm"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Modern load testing tool, using Go and JavaScript
+brew "k6"
+# Run local Kubernetes cluster in Docker
+brew "kind"
+# FAST Kubernetes manifests validator, with support for Custom Resources!
+brew "kubeconform"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
+# Template-free customization of Kubernetes YAML manifests
+brew "kustomize"
+# Lazier way to manage everything docker
+brew "lazydocker"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Powerful, lightweight programming language
+brew "lua"
+# Language Server for the Lua language
+brew "lua-language-server"
+# Java-based project management
+brew "maven"
+# Run a Kubernetes cluster locally
+brew "minikube"
+# Simple tool to make locally trusted development certificates
+brew "mkcert"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Small build system for use with gyp or CMake
+brew "ninja"
+# Libraries for security-enabled client and server applications
+brew "nss"
+# Tools for one-time password authentication systems
+brew "oath-toolkit"
+# Development kit for the Java programming language
+brew "openjdk@21"
+# Fast, disk space efficient package manager
+brew "pnpm"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
+# Protocol buffers (Google's data interchange format)
+brew "protobuf"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Editor of encrypted files
+brew "sops"
+# Generate type safe Go from SQL
+brew "sqlc"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
+# Static analysis security scanner for your terraform code
+brew "tfsec"
+# Terminal multiplexer
+brew "tmux"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Vulnerability scanner for container images, file systems, and Git repos
+brew "trivy"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
+# Tools for the WireGuard secure network tunnel
+brew "wireguard-tools"
+# CLI for Git worktree management, designed for parallel AI agent workflows
+brew "worktrunk"
+# Generate your Xcode project from a spec file and your folder structure
+brew "xcodegen"
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
+brew "yq"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Additional completion definitions for zsh
+brew "zsh-completions"
+# Fish shell like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
+# OpenCode V2 - the AI coding agent for the terminal
+brew "anomalyco/tap/opencode-v2", trusted: true
+# Kubernetes GUI for GitOps with Flux and Helm
+brew "gimlet-io/capacitor/capacitor", trusted: true
+# Desktop-inspired terminal diff viewer for agent-authored changesets
+brew "modem-dev/tap/hunk", trusted: true
+# Stripe CLI utility
+brew "stripe/stripe-cli/stripe", trusted: true
+cask "aerospace"
+# Native GUI for Homebrew casks
+cask "caskhub"
+# Terminal-based AI coding assistant
+cask "claude-code"
+# Productivity platform for tasks, docs, goals, and chat
+cask "clickup"
+# Database manager
+cask "dataflare"
+# Collaborative team software
+cask "figma"
+cask "font-jetbrains-mono-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Web browser
+cask "google-chrome"
+# App to manage software development and track bugs
+cask "linear"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+# Collaboration platform for API development
+cask "postman"
+# Native GUI tool for relational databases
+cask "tableplus"
+# Native desktop client for WhatsApp
+cask "whatsapp"
+go "github.com/bootdotdev/bootdev"
+go "sigs.k8s.io/cloud-provider-kind"
+go "github.com/daixiang0/gci"
+go "golang.org/dl/go1.27.2"
+go "mvdan.cc/gofumpt"
+go "golang.org/x/tools/cmd/goimports"
+go "github.com/golangci/golangci-lint/v2/cmd/golangci-lint"
+go "golang.org/x/tools/gopls"
+go "golang.org/x/vuln/cmd/govulncheck"
+go "github.com/vektra/mockery/v3"
+go "google.golang.org/protobuf/cmd/protoc-gen-go"
+go "google.golang.org/grpc/cmd/protoc-gen-go-grpc"
+go "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway"
+uv "graphifyy[sql,terraform]"
+npm "@biomejs/biome"
+npm "bash-language-server"
+npm "dockerfile-language-server-nodejs"
+npm "eas-cli"
+npm "newman"
+npm "typescript-language-server"
+npm "typescript"
+npm "vscode-langservers-extracted"
+npm "yaml-language-server"

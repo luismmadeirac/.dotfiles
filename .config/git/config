@@ -5,7 +5,9 @@
 	signingkey = 424CA127A92CB146
 [core]
     editor = nvim
-	sshCommand = ssh -i ~/.ssh/syott_root_ed25519 -o IdentitiesOnly=yes
+	sshCommand = ssh -i /Users/luismadeira/.ssh/syott_root_ed25519 -o IdentitiesOnly=yes
+	quotePath = false
+	commitGraph = true
 [column]
     ui = auto
 [diff]
@@ -14,18 +16,33 @@
 	renames = true
 	tool = nvimdiff
 [web]
-	browser = google-chrome
+	browser = open
 [color "branch"]
 	current = yellow bold
 	local = green bold
 	remote = cyan bold
 [pull]
     rebase = true
-[commit]
-	gpgsign = true
 [credential "https://github.com"]
-	helper = 
+	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
+	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
+[gc]
+	writeCommitGraph = true
+[fetch]
+	writeCommitGraph = true
+[url "https://git.internal.syott.co/"]
+	insteadOf = ssh://git@git.internal.syott.co/
+
+# Per-directory identities. Keep these last: later settings win in git,
+# so anything below would override the included files.
+
+# CGI repos
+[includeIf "gitdir:~/work-cgi/"]
+	path = config-cgi
+
+# Syott repos
+[includeIf "gitdir:~/work/syott/"]
+	path = config-syott

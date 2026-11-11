@@ -12,7 +12,6 @@ alias lg='lazygit'
 
 alias t='tmux'
 alias v='nvim'
-alias vo='NVIM_APPNAME=nvim.bak nvim'
 
 # Jump
 alias p='cd $HOME/personal'

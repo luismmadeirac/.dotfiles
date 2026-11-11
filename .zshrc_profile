@@ -1,10 +1,14 @@
+# Keep PATH/fpath free of duplicates (also when re-sourcing with `sz`)
+typeset -U path PATH fpath
+
 export CONFIG_HOME=$HOME/.config
 export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 
-# XDG tool configurations
-export NPM_CONFIG_CACHE="$XDG_CONFIG_HOME/npm"
-export YARN_CACHE_FOLDER="$XDG_CONFIG_HOME/yarn"
-export VIM_HOME="$XDG_CONFIG_HOME/vim"
+# XDG tool configurations (caches belong in XDG_CACHE_HOME, not XDG_CONFIG_HOME)
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+export YARN_CACHE_FOLDER="$XDG_CACHE_HOME/yarn"
 
 # XDG zsh state directories
 export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
@@ -17,12 +21,10 @@ mkdir -p "$ZSH_STATE_DIR"
 
 VIM="nvim"
 
-PERSONAL=$CONFIG_HOME/Personal
-
-export GOPATH=$HOME/.local/go
-export PATH="/opt/homebrew/bin:$PATH"
+export GOPATH=$HOME/go
 export GIT_EDITOR=$VIM
-export DEV_ENV_HOME="$PERSONAL/dev-env"
+
+export HOMEBREW_BUNDLE_FILE="$XDG_CONFIG_HOME/homebrew/Brewfile"
 
 export AWS_CONFIG_FILE="$CONFIG_HOME/aws/config"
 export AWS_SHARED_CREDENTIALS_FILE="$CONFIG_HOME/aws/credentials"
@@ -40,11 +42,7 @@ addToPathFront() {
   fi
 }
 
-addToPathFront $HOME/.local/.npm-global/bin
 addToPathFront $HOME/.local/scripts
 addToPathFront $HOME/.local/bin
-addToPathFront $HOME/.local/npm/bin
 
-addToPathFront $HOME/.local/go/bin
-addToPathFront /usr/local/go/bin
-addToPath $HOME/.local/personal
+addToPath $GOPATH/bin

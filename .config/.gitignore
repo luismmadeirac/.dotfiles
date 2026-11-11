@@ -5,20 +5,35 @@ debug
 .repro
 foo.*
 *.log
+*.bak
+*.bak.*
 data
+.DS_Store
 
-// ---------
-
-opencode/
+# Managed in their own repos
 nvim/
-configstore/
+opencode/
+
+# Installed/managed by tools
+oh-my-zsh/
+tmux/plugins/
+rustup/
 nvm/
 npm/
 pnpm/
 yarn/
 raycast/
-oh-my-zsh/
-rustup/
-npm/
-tmux/plugins/
+swiftpm/
 
+# Credentials, tokens and keys — never commit (this repo is public)
+aws/
+configstore/
+glab-cli/
+helm/
+homebrew/*
+!homebrew/Brewfile
+rk-assur/
+sops/
+stripe/
+syott/
+.semgrep/

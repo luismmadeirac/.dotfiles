@@ -1,0 +1,9 @@
+[user]
+	name = Luis Madeira
+	email = luis@syott.co
+	username = luis-madeira
+	signingkey = 9EEA992844D50097
+[core]
+	sshCommand = ssh -i ~/.ssh/syott_root_ed25519 -o IdentitiesOnly=yes
+[commit]
+	gpgsign = true
